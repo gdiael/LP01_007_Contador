@@ -14,7 +14,7 @@ public:
     Contador(T first);
     Contador(T *arg[]);
     void addNovo(T novo);
-    int getTotal();
+    T getTotal();
 };
 
 template <typename T>
@@ -34,7 +34,7 @@ void Contador<T>::addNovo(T novo){
 }
 
 template <typename T>
-int Contador<T>::getTotal(){
+T Contador<T>::getTotal(){
     T res = 0;
     for(int i = 0; i < m_quant; i++){
         res += m_elementos[i];
@@ -43,12 +43,12 @@ int Contador<T>::getTotal(){
 }
 
 template <>
-int Contador<std::string>::getTotal(){
+std::string Contador<std::string>::getTotal(){
     int res = 0;
     for(int i = 0; i < m_quant; i++){
         res += m_elementos[i].size();
     };
-    return res;
+    return std::to_string(res);
 }
 
 #endif
